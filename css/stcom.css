@@ -1,5 +1,10 @@
 /* Make something awesome! */
-@import url(http://fonts.googleapis.com/css?family=Noto+Sans&subset=latin,cyrillic,cyrillic-ext);
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Noto Sans'), local('NotoSans'), url(sistemium.woff) format('woff');
+}
 
 body {
   font-family: 'Noto Sans', sans-serif;
