@@ -1,0 +1,84 @@
+/* Make something awesome! */
+@import url(http://fonts.googleapis.com/css?family=Noto+Sans&subset=latin,cyrillic,cyrillic-ext);
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+/* Custom container */
+.container-narrow {
+  margin: 0 auto;
+  max-width: 700px;
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  margin: 45px 0;
+  text-align: center;
+}
+.jumbotron h1 {
+  font-size: 62px;
+  line-height: 1;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 45px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+@media (max-width: 480px) {
+  
+  .marketing p + h4 {
+    margin-top: auto;
+  }
+  
+  body {
+    padding-top: 10px;
+  }
+  
+  .brand {
+    text-align: center;
+  }
+
+  .brand * {
+    display: inline-block;
+  }
+  
+  .jumbotron {
+    margin-top: 0px;
+  }
+  
+  .container-narrow hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .jumbotron h1 {
+    font-size: 72px;
+  }
+  
+  .masthead .nav {
+    float: none;
+    margin: auto;
+    text-align: center;
+  }
+
+  .masthead .nav * {
+    float: none;
+    display: inline-block;
+  }  
+  
+}
+
