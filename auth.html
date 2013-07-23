@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap-responsive.css">
     <script type="text/javascript" src="../libs/jquery.min.js"></script>
     <script type="text/javascript" src="../libs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/forms.js"></script>
     <link rel="stylesheet" href="css/stcom.css">
     
     <meta name="viewport" content="user-scalable=no, width=device-width">
@@ -52,17 +53,32 @@
         
         <p class="lead">Предоставьте регистрационные данные</p>
         
-        <form class="form-horizontal span8 offset">
+        <form class="form-horizontal">
+          
+          <div class="alert hidden">
+            <strong>Ошибка:</strong>
+            <span>Нет телефона с таким номером</span>
+            <button class="close" type="button" data-dismiss="alert">×</button>
+          </div>
+          
           <div class="control-group">
             <label class="control-label">Телефон:</label>
             <div class="controls">
-              <input type="tel" autocomplete="on" class="input-medium" name="mobileNumber">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <input type="tel" class="input-medium" name="mobileNumber">
+              <button type="button" class="btn btn-primary btn-success">Отправить</button>
             </div>
           </div>
-          <div class="control-group">
-            <div class="controls"></div>
+          
+          <input type="hidden" name="ID">
+          
+          <div class="control-group hidden">
+            <label class="control-label">СМС-код:</label>
+            <div class="controls">
+              <input type="tel" class="input-medium" name="smsCode">
+              <button type="button" class="btn btn-primary btn-success">Отправить</button>
+            </div>
           </div>
+          
         </form>
         
       </div>
