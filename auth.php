@@ -3,10 +3,13 @@
     require_once('../libs/reflect/php/http.php');
     require_once( '../libs/sms.ru/lib/Zelenin/smsru.php' );
     
+    $private=simplexml_load_file('../secure.xml');
+    
     $headers = array();
     
     $headers['Authorization'] = file_get_contents ('../settings/rest-auth-code.txt');
     $smsToken = file_get_contents ('../settings/sms-auth-code.txt');
+    $restUrl = (string) $private->server[0];
     
     //header('content-type: text/xml');
     
@@ -24,7 +27,7 @@
     if ($service) {
         
         $response = simplexml_load_string ( httpPost (
-            'https://asa1.sistemium.com/demo/rest/get/',
+            $restUrl . '/rest/get/',
             false,
             $service,
             $headers
