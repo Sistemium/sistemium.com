@@ -32,10 +32,10 @@
             <a href="index.html">Главная</a>
           </li>
           <li>
-            <a href="#">О проекте</a>
+            <a>О проекте</a>
           </li>
           <li>
-            <a href="#">Помощь</a>
+            <a>Помощь</a>
           </li>
         </ul>
         
@@ -55,16 +55,10 @@
         
         <form class="form-horizontal">
           
-          <div class="alert hidden">
-            <strong>Ошибка:</strong>
-            <span>Нет телефона с таким номером</span>
-            <button class="close" type="button" data-dismiss="alert">×</button>
-          </div>
-          
           <div class="control-group">
             <label class="control-label">Телефон:</label>
             <div class="controls">
-              <input type="tel" class="input-medium" name="mobileNumber">
+              <input type="tel" class="input-medium" name="mobileNumber" autofocus>
               <button type="button" class="btn btn-primary btn-success" data-loading-text="Проверка...">Отправить</button>
             </div>
           </div>
@@ -75,7 +69,7 @@
             <label class="control-label">СМС-код:</label>
             <div class="controls">
               <input type="tel" class="input-medium" name="smsCode">
-              <button type="button" class="btn btn-primary btn-success">Отправить</button>
+              <button type="button" class="btn btn-primary btn-success" data-loading-text="Проверка...">Отправить</button>
             </div>
           </div>
           
