@@ -29,6 +29,13 @@ var buttonClick = function() {
         data.smsCode = smsCodeField.val();
     }
     
+    var currentField = requestType ? smsCodeField : phoneField;
+    
+    var currentButton = currentField.parent().find('button');
+    
+    currentButton.button('loading');
+    currentField.popover('destroy');
+    
     $.ajax({
         
         dataType: "json",
@@ -37,20 +44,39 @@ var buttonClick = function() {
         
         success: function (data) {
             
+            currentButton.button('reset');
+            
             switch (requestType) {
                 
                 case 0:
-                    phoneField.popover('destroy');
-                    phoneField.parent().find('button').hide();
+                    
+                    currentButton.fadeOut(400, function () {
+                        var txtElem = $('<span class="help-inline">ОК, получите СМС с кодом</span>');
+                        txtElem.hide();
+                        currentField.after(txtElem);
+                        txtElem.fadeIn();
+                    });
+                    
                     //phoneField.closest('.control-group').addClass('success');
-                    phoneField.after('<span class="help-inline">ОК, получите СМС с кодом</span>');
+                    
                     $('#smsCode-field').closest('.control-group').removeClass('hidden');
                     $('#ID-field').val(data.ID);
+                    
                 break
                 
                 case 1:
-                    smsCodeField.popover('destroy');
-                    location.replace('bs/tp');
+                    if (data.redirectUri) {
+                        
+                        currentButton.fadeOut(400, function () {
+                            var txtElem = $('<span class="help-inline">ОК, ждите переадресации ...</span>');
+                            txtElem.hide();
+                            currentField.after(txtElem);
+                            txtElem.fadeIn();
+                        });
+                        
+                        setTimeout(function() {location.assign(data.redirectUri)}, 800);
+                        
+                    }
                 break
                 
             }
@@ -58,13 +84,15 @@ var buttonClick = function() {
         
         error: function () {
             
-            var errField = requestType ? smsCodeField : phoneField,
+            var errField = currentField,
                 errText = requestType ? 'Неверный код' : 'Неверный номер'            
             ;
             
+            currentButton.button('reset');
+            
             errField.popover({
                 placement: 'bottom',
-                title: 'Ошибка ввода',
+                title: 'Ошибка',
                 content: errText
             });
             
