@@ -64,6 +64,7 @@
                             , (string) $elem
                             , time() + STCOM_TOKEN_LIFETIME
                             , '/'
+                            , false
                             , $_SERVER['SERVER_PORT'] == '443'
                         );
                         
