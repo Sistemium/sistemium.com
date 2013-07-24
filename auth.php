@@ -9,7 +9,7 @@
     
     $headers['Authorization'] = file_get_contents ('../settings/rest-auth-code.txt');
     $smsToken = file_get_contents ('../settings/sms-auth-code.txt');
-    $restUrl = (string) $private->server[0];
+    $restUrl = (string) $private->pha[0];
     
     //header('content-type: text/xml');
     
