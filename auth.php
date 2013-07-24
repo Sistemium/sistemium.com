@@ -1,6 +1,6 @@
 <?php
 
-    require_once('../ud/php/http.php');
+    require_once('../libs/reflect/php/http.php');
     require_once( '../libs/sms.ru/lib/Zelenin/smsru.php' );
     
     $headers = array();
