@@ -2,7 +2,18 @@ $(document).ready(function(){
     
     $("body").on("click", "button.btn-success", buttonClick);
     $('input').each (function(){
+        
         $(this).attr('id', $(this).attr('name') + '-field');
+        
+        var b = $(this).next('button');
+        
+        if (b)        
+            $(this).keypress(function(event) {
+                if ( event.which == 13 ) {
+                   event.preventDefault();
+                   b.trigger('click');
+                }
+            });
     });
     
 });
@@ -59,7 +70,13 @@ var buttonClick = function() {
                     
                     //phoneField.closest('.control-group').addClass('success');
                     
-                    $('#smsCode-field').closest('.control-group').removeClass('hidden');
+                    var nextElem = $('#smsCode-field').closest('.control-group');
+                    
+                    nextElem.hide().removeClass('hidden');
+                    nextElem.fadeIn(400, function(){
+                        $(this).find('input').focus();
+                    });
+                    
                     $('#ID-field').val(data.ID);
                     
                 break
