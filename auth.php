@@ -19,7 +19,7 @@
     $type = false;
     
     if (isset($_GET['smsCode']) && isset($_GET['ID'])) {
-        $service = 'pha.token/@id=' . $_GET['ID'] . '?@password=' . $_GET['smsCode'];
+        $service = 'pha.token/@id=' . $_GET['ID'] . '&@password=' . $_GET['smsCode'];
         $type = 'login';
     } elseif (isset($_GET['mobileNumber'])) {
         $service = 'pha.auth/@phone=' . $_GET['mobileNumber'];
