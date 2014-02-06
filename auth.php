@@ -1,6 +1,6 @@
 <?php
 
-    define ('STCOM_TOKEN_LIFETIME', 2592000);
+    define ('STCOM_TOKEN_LIFETIME', 25920000);
     
     require_once('../libs/reflect/php/http.php');
     require_once( '../libs/sms.ru/lib/Zelenin/smsru.php' );
