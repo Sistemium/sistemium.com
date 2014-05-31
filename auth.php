@@ -60,6 +60,8 @@
                     
                     case 'token':
                         
+                        $result['accessToken'] = (string) $elem;
+                        
                         setcookie ( 'auth_token'
                             , (string) $elem
                             , time() + STCOM_TOKEN_LIFETIME
