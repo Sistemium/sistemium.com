@@ -43,6 +43,10 @@
                 
                 switch ($elem['name']) {
                     
+                    case 'name':
+                        $result['name'] = (string) $elem;
+                    break;
+                    
                     case 'id':
                         $result['ID'] = (string) $elem;
                     break;
