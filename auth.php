@@ -18,11 +18,11 @@
     $service = false;
     $type = false;
     
-    if (isset($_GET['smsCode']) && isset($_GET['ID'])) {
-        $service = 'pha.token/@id=' . $_GET['ID'] . '&@password=' . $_GET['smsCode'];
+    if (isset($_REQUEST['smsCode']) && isset($_REQUEST['ID'])) {
+        $service = 'pha.token/@id=' . $_REQUEST['ID'] . '&@password=' . $_REQUEST['smsCode'];
         $type = 'login';
-    } elseif (isset($_GET['mobileNumber'])) {
-        $service = 'pha.auth/@phone=' . $_GET['mobileNumber'];
+    } elseif (isset($_REQUEST['mobileNumber'])) {
+        $service = 'pha.auth/@phone=' . $_REQUEST['mobileNumber'];
         $type = 'register';
     }
     
@@ -54,7 +54,7 @@
                     case 'password':
                         if ($type == 'register' && $smsToken) {
                             $sms = new \Zelenin\smsru ($smsToken);
-                            $sms -> sms_send($_GET['mobileNumber'], 'Код авторизации: ' . (string) $elem, null, null, false);
+                            $sms -> sms_send($_REQUEST['mobileNumber'], 'Код авторизации: ' . (string) $elem, null, null, false);
                         }
                     break;
                     
