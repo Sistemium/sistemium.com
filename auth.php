@@ -10,6 +10,8 @@
     $headers = array();
     
     $headers['Authorization'] = file_get_contents ('../settings/rest-auth-code.txt');
+    $headers['User-Agent-Original'] = $_SERVER['HTTP_USER_AGENT'];
+
     @$smsToken = file_get_contents ('../settings/sms-auth-code.txt');
     $restUrl = (string) $private->pha[0];
     
