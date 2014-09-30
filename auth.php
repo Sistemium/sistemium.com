@@ -4,7 +4,10 @@
     
     require_once('../libs/reflect/php/http.php');
     require_once( '../libs/sms.ru/lib/Zelenin/smsru.php' );
-    
+
+    if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS')
+        return;
+
     $private=simplexml_load_file('../secure.xml');
     
     $headers = array();
